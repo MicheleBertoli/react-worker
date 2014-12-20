@@ -1,0 +1,30 @@
+{
+  "name": "react-worker",
+  "version": "1.0.0",
+  "description": "Playing with React and Service Workers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MicheleBertoli/react-worker.git"
+  },
+  "author": "Michele Bertoli <michele@berto.li>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MicheleBertoli/react-worker/issues"
+  },
+  "homepage": "https://github.com/MicheleBertoli/react-worker",
+  "devDependencies": {
+    "browserify": "^7.0.3",
+    "reactify": "^0.17.1"
+  },
+  "dependencies": {
+    "react": "^0.12.2"
+  },
+  "scripts": {
+    "build": "browserify ./src -o dist/build.js"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  }
+}

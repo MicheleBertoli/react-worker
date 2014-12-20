@@ -1,9 +1,8 @@
-importScripts('react.js');
+importScripts('dist/build.js');
 
 self.addEventListener('fetch', function(event) {
 
-  var element = React.createElement('h1', null, 'Hello, world!');
-  var html = React.renderToString(element);
+  var html = React.renderToString(HelloMessage());
   var response = new Response(html, {
     headers: {
       'Content-Type': 'text/html'
