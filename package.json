@@ -17,11 +17,14 @@
     "reactify": "^0.17.1"
   },
   "dependencies": {
+    "express": "^4.10.6",
     "react": "^0.12.2",
     "react-router": "^0.11.6"
   },
   "scripts": {
-    "build": "browserify ./src -o dist/build.js"
+    "build": "browserify ./src -o public/build.js",
+    "postinstall": "npm run build",
+    "start": "node server"
   },
   "browserify": {
     "transform": [

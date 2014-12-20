@@ -19,7 +19,7 @@ var App = React.createClass({
           </head>
           <body>
             <RouteHandler />
-            <script src="/dist/build.js"></script>
+            <script src="/build.js"></script>
           </body>
         </html>
       );

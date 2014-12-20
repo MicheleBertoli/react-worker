@@ -1,4 +1,4 @@
-importScripts('dist/build.js');
+importScripts('build.js');
 
 self.addEventListener('fetch', function(event) {
   if (/\.js$/.test(event.request.url)) {
