@@ -5,7 +5,8 @@ Url = require('url');
 var RouteHandler = Router.RouteHandler,
   Route = Router.Route,
   DefaultRoute = Router.DefaultRoute,
-  State = Router.State;
+  State = Router.State,
+  HistoryLocation = Router.HistoryLocation;
 
 var App = React.createClass({
   render: function() {
@@ -26,6 +27,16 @@ var App = React.createClass({
 });
 
 var Home = React.createClass({
+  getInitialState: function() {
+    return {
+      click: 0
+    }
+  },
+  handleClick: function() {
+    this.setState({
+      click: this.state.click + 1
+    });
+  },
   render: function() {
     return (
         <div>
@@ -36,6 +47,9 @@ var Home = React.createClass({
             </li>
             <li>
               <a href="hello/World">Hello World</a>
+            </li>
+            <li>
+              <button onClick={this.handleClick}>Click: {this.state.click}</button>
             </li>
           </ul>
         </div>
@@ -68,3 +82,9 @@ Routes = (
     <Route path="hello/:name" handler={Hello} />
   </Route>
 );
+
+if (typeof window !== 'undefined') {
+  Router.run(Routes, HistoryLocation, function(Handler) {
+    React.render(<Handler />, document);
+  });
+}
