@@ -4,7 +4,7 @@ self.addEventListener('fetch', function(event) {
   if (/\.js$/.test(event.request.url)) {
     _static(event);
   } else {
-    _render(event);
+    _app(event);
   }
 });
 
@@ -20,19 +20,19 @@ function _static(event) {
   );
 }
 
-function _render(event) {
+function _app(event) {
   Router.run(Routes, _path(event.request.url), function(Handler) {
-    var html = _compile(Handler);
+    var html = _render(Handler);
     var response = new Response('<!DOCTYPE html>' + html, options);
     event.respondWith(response);
   });
 }
 
-function _compile(Handler) {
+function _render(Handler) {
   var handler = React.createFactory(Handler);
   return React.renderToString(handler());
 }
 
 function _path(url) {
-  return '/' + url.split('/').pop();
+  return Url.parse(url).path;
 }
