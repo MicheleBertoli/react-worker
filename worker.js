@@ -1,32 +1,38 @@
 importScripts('dist/build.js');
 
 self.addEventListener('fetch', function(event) {
-
   if (/\.js$/.test(event.request.url)) {
     _static(event);
   } else {
-    _app(event);
+    _render(event);
   }
-
 });
 
-function _static(event) {
+var options = {
+  headers: {
+    'Content-Type': 'text/html'
+  }
+};
 
+function _static(event) {
   event.respondWith(
     fetch(event.request.url)
   );
-
 }
 
-function _app(event) {
-
-  var helloMessage = React.createFactory(HelloMessage);
-  var html = React.renderToString(helloMessage());
-  var response = new Response('<!DOCTYPE html>' + html, {
-    headers: {
-      'Content-Type': 'text/html'
-    }
+function _render(event) {
+  Router.run(Routes, _path(event.request.url), function(Handler) {
+    var html = _compile(Handler);
+    var response = new Response('<!DOCTYPE html>' + html, options);
+    event.respondWith(response);
   });
-  event.respondWith(response);
+}
 
+function _compile(Handler) {
+  var handler = React.createFactory(Handler);
+  return React.renderToString(handler());
+}
+
+function _path(url) {
+  return '/' + url.split('/').pop();
 }
