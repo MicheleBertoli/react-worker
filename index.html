@@ -6,14 +6,18 @@
     </title>
   </head>
   <body>
+    <p hidden>
+      Worker registered, refresh to see the magic!
+    </p>
     <script>
       if (navigator.serviceWorker) {
         navigator.serviceWorker.register('./worker.js', {
           scope: './'
-        }).then(function(reg) {
-          console.log('Yey!', reg);
-        }).catch(function(err) {
-          console.log('Boo!', err);
+        }).then(function(worker) {
+          console.log('Yey!', worker);
+          document.querySelector('p').removeAttribute('hidden');
+        }).catch(function(error) {
+          console.log('Boo!', error);
         });
       }
     </script>
