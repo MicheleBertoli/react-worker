@@ -5,6 +5,8 @@ Playing with [React](http://facebook.github.io/react/) and [Service Workers](htt
 
 It works in [Chrome Canary](https://www.google.co.uk/intl/en/chrome/browser/canary.html) with the "experimental Web Platform features" flag enabled.
 
+[Demo](https://react-worker.herokuapp.com/)
+
 Running locally
 ---------------
 
