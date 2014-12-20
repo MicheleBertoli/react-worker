@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      React Worker
+    </title>
+  </head>
+  <body>
+    <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register('./worker.js', {
+          scope: './'
+        }).then(function(reg) {
+          console.log('Yey!', reg);
+        }).catch(function(err) {
+          console.log('Boo!', err);
+        });
+      }
+    </script>
+  </body>
+</html>
