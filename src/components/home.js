@@ -23,7 +23,7 @@ var Home = React.createClass({
               <a href="hello/World">Hello World</a>
             </li>
             <li>
-              <button onClick={this.handleClick}>Click: {this.state.click}</button>
+              <button onClick={this.handleClick}>Clicks: {this.state.click}</button>
             </li>
           </ul>
         </div>
