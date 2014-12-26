@@ -5,7 +5,7 @@ var React = require('react'),
 var Hello = React.createClass({
   mixins: [State],
   render: function() {
-    var name = this.getParams().name;
+    var name = this.getParams() ? this.getParams().name : 'World';
     return (
         <h1>Hello, {name}!</h1>
       );

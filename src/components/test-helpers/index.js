@@ -20,9 +20,10 @@ function makeStubbedDescriptor(component, props, contextStubs) {
       routes: React.PropTypes.array.isRequired,
       namedRoutes: React.PropTypes.object.isRequired,
       scrollBehavior: React.PropTypes.object,
-      routeHandlers: React.PropTypes.array,
-      getRouteAtDepth: React.PropTypes.func,
-      getRouteComponents: React.PropTypes.func
+      routeHandlers: React.PropTypes.array.isRequired,
+      getRouteAtDepth: React.PropTypes.func.isRequired,
+      getRouteComponents: React.PropTypes.func.isRequired,
+      getCurrentParams: React.PropTypes.func.isRequired
     },
  
     getChildContext: function() {
@@ -43,7 +44,8 @@ function makeStubbedDescriptor(component, props, contextStubs) {
         scrollBehavior: {},
         routeHandlers: [{}],
         getRouteAtDepth: function() {},
-        getRouteComponents: function() { return {}; }
+        getRouteComponents: function() { return {}; },
+        getCurrentParams: function() {}
       }, contextStubs);
     },
  
