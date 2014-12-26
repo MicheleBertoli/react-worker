@@ -16,7 +16,7 @@ self.addEventListener('fetch', function(event) {
   }
 });
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', function() {
   caches.open(cacheKey).then(function(cache) {
     cache.keys().then(function(requests) {
       requests.forEach(function(request) {
@@ -35,13 +35,13 @@ function _static(event) {
 function _app(event) {
   event.respondWith(
     caches.match(event.request).then(function(page) {
-      return page || _route(event)
+      return page || _route(event);
     })
   );
 }
 
 function _route(event) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve) {
     Router.run(Routes, _path(event.request.url), function(Handler) {
       var html = _render(Handler);
       var response = new Response('<!DOCTYPE html>' + html, options);

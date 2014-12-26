@@ -14,7 +14,6 @@ describe('Home', function() {
     home = TestUtils.renderIntoDocument(
       <Home />
     );
-    
     button = TestUtils.findRenderedDOMComponentWithTag(
       home, 'button');
 
@@ -29,7 +28,6 @@ describe('Home', function() {
   it('counts the number of clicks', function() {
 
     TestUtils.Simulate.click(button);
-
     expect(button.getDOMNode().textContent).toEqual('Clicks: 1');
 
   });
