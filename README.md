@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MicheleBertoli/react-worker.svg?branch=master)](https://travis-ci.org/MicheleBertoli/react-worker)
+
 React Worker
 ============
 
