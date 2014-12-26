@@ -11,10 +11,17 @@ It works in [Chrome Canary](https://www.google.co.uk/intl/en/chrome/browser/cana
 
 [Demo](https://react-worker.herokuapp.com/)
 
-Running locally
+Run
 ---------------
 
 ```
 $ npm install
 $ npm start
+```
+
+Test
+---------------
+
+```
+$ npm test
 ```

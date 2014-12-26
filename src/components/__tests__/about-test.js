@@ -2,7 +2,7 @@ jest.dontMock('../about.js');
 
 describe('About', function() {
 
-  it('has the proper title', function() {
+  it('has the proper heading', function() {
 
     var React = require('react/addons');
     var About = require('../about.js');
