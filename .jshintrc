@@ -8,13 +8,14 @@
   "onecase": true,
   "lastsemic": true,
   "indent": 2,
+  "esnext": true,
   "globals": {
     "importScripts": false,
     "self": false,
     "caches": false,
     "fetch": false,
     "Router": false,
-    "Routes": false, 
+    "Routes": false,
     "Response": false,
     "Url": false,
     "React": false
